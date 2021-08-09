@@ -59,3 +59,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 ##### 追記 #####
 # アカウント機能
 gem 'sorcery'
+
+# 環境変数の管理
+gem 'dotenv-rails'
