@@ -1,0 +1,29 @@
+<%# 新規登録ページ %>
+<div class="user-form">
+    <%# local: true　で html通信 %>
+    <%= form_with url: "/users/create", local: true do |f| %>
+    <div>
+        <h5><%= f.label :name, 'ニックネーム'%></h5>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <h5><%= f.label :email, 'メールアドレス' %></h5>
+        <%= f.text_field :email %>
+    </div>
+
+    <div>
+        <h5><%= f.label :password, 'パスワード' %></h5>
+        <%= f.password_field :password %>
+    </div>
+
+    <div>
+        <h5><%= f.label :password_confirmation, 'パスワード確認' %></h5>
+        <%= f.password_field :password_confirmation %>
+    </div>
+
+    <div>
+        <%= f.submit "登録" %>
+    </div>
+    <% end %>
+</div>

@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <%= link_to(current_user.id, "/") %>
+      <%= link_to "Logout", :logout, method: :post %>
+    <% else %>
+      <%= link_to "新規登録", users_new_path %>
+      <%= link_to "ログイン", :login %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
