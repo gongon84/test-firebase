@@ -11,12 +11,29 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <%= link_to(current_user.id, "/") %>
-      <%= link_to "Logout", :logout, method: :post %>
+    <h3 style="background-color: #CBFFD3;"><%= notice %></h3>
+    <ul>
+      <li>
+         <%= link_to("ホーム", "/") %>
+      </li>
+      <% if current_user %>
+        <li>
+          <%= link_to(current_user.name, "/users/#{current_user.id}/show") %>
+        </li>
+        <li>
+          <%= link_to "Logout", :logout, method: :post %>
+        </li>
     <% else %>
-      <%= link_to "新規登録", users_new_path %>
-      <%= link_to "ログイン", :login %>
+      <li>
+        <%= link_to "新規登録", users_new_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", :login %>
+      </li>
+      <li>
+         <%= link_to 'Googleログイン', auth_at_provider_path(provider: :google) %>
+      </li>
+    </ul>
     <% end %>
     <%= yield %>
   </body>

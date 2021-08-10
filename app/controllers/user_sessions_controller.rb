@@ -5,14 +5,14 @@ class UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password])
-      redirect_to("/users/#{@user.id}/show")
+      redirect_to("/users/#{@user.id}/show", notice: "ログインしました")
     else
-      render :new
+      render :new, notice: "ログインに失敗しました"
     end
   end
 
   def destroy
     logout
-    redirect_to(root_url)
+    redirect_to(root_url, notice: "ログアウトしました")
   end
 end

@@ -9,9 +9,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_url
+      redirect_to root_url, notice: "登録しました"
     else
-      render :new
+      render :new, notice: "登録に失敗しました"
     end
   end
 
@@ -23,6 +23,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:email, :password)
+    params.permit(:name, :email, :password)
   end
 end

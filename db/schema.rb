@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_133622) do
+ActiveRecord::Schema.define(version: 2021_08_10_020336) do
+
+  create_table "authentications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["provider", "uid", "user_id"], name: "index_authentications_on_provider_and_uid_and_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
