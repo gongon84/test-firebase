@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ li a {
+     color: inherit;
+     text-decoration: none;
+ }
